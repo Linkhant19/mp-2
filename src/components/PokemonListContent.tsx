@@ -7,22 +7,21 @@ import { Pokemon } from "../interfaces/Pokemons";
 const PokemonPreviewDiv = styled.div`
     width: 100%;
     margin: auto;
-    background-color: #111111;
+    background-color: #222222;
 
     border: 5px solid transparent;
     border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
     border-image-slice: 1;
 `
-// I got the three border lines above from https://codepen.io/unnegative/pen/dVwYBq to get a rainbow looking border.
+// I got the three border lines ⬆ above from https://codepen.io/unnegative/pen/dVwYBq to get a rainbow looking border.
 
 const PokemonImage = styled.img`
     width: 90%;
     height: auto;
-    
 `
 
 const PokemonName = styled.h1`
-    font-size: 1em;
+    font-size: 2em;
 `
 
 const RandomButton = styled.button`
@@ -68,6 +67,8 @@ export default function PokemonListContent() {
             .catch((e: Error) => console.log("There was the error: " + e));;
     }, [randomNumber]);  // this randomNumber makes the useEffect re-run
 
+
+    // I will generate a random number between 1 and 1000 and set it to the state to get a new pokemon
     function generateRandomNumber() {
         const newRandomNumber = Math.floor(Math.random() * 1000) + 1; 
         console.log("Random number generated:", newRandomNumber);
@@ -76,7 +77,8 @@ export default function PokemonListContent() {
 
     return (
         <>
-            <RandomButton onClick={generateRandomNumber}>Generate random</RandomButton>
+            {/* this fun button will handle the random number generation :D */}
+            <RandomButton onClick={generateRandomNumber}>Generate Random</RandomButton>
 
             { pokemons.map(pokemon => <PokemonPreview pokemon={pokemon} />) }
         </>

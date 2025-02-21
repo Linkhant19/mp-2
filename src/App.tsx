@@ -1,3 +1,5 @@
+// src/App.tsx
+
 import PokemonListContent from "./components/PokemonListContent";
 import './App.css'
 
